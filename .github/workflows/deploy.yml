@@ -1,0 +1,17 @@
+name: Deploy Website
+on:
+  push:
+    branches:
+      - main  # Change to gh-pages if needed
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy to GitHub Pages
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "your-username"
+          git add .
+          git commit -m "Auto-deploy"
+          git push
